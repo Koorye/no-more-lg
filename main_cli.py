@@ -57,7 +57,22 @@ def show_activity(user):
         else:
             interval = '-'
 
-        print(f'代码：{code}\t名称：{name}\t状态：{status}\t剩余时间：{interval}')
+        print('代码：', end='')
+        print_green(code, end='')
+        print('\t名称：', end='')
+        print_green(name, end='')
+
+        print('\t状态：', end='')
+        if status in ['可报名', '已报名']:
+            print_green(status, end='')
+        else:
+            print_red(status, end='')
+
+        print('\t剩余时间：', end='')
+        if interval == '-':
+            print_green(interval)
+        else:
+            print_red(interval)
 
 
 def handle_register(user, code):
